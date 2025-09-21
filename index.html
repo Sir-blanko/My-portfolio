@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antony Kagwanja</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent: #2ecc71; /* Changed to a green accent */
+            --gradient: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%); /* Green gradient */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #1abc9c;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); /* Green shadow */
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-left: 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        /* Projects Section */
+        #projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            background: #2a2a2a; /* Placeholder color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(46, 204, 113, 0.2); /* Green tag */
+            color: var(--accent);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-links a {
+            margin-right: 1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-secondary);
+        }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: #2a2a2a; /* Placeholder color */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 3rem;
+        }
+
+        .about-content {
+            flex: 2;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #about p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        #skills h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #contact p {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">AK.</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Student & Aspiring Developer</span>
+                <h1>Hello, I'm Antony Kagwanja.</h1>
+                <p class="hero-desc">A passionate student at Weithaga Boys High School, Kenya, exploring the world of technology and building my skills in programming and web development. I'm eager to learn, create, and contribute to exciting projects.</p>
+                <a href="#projects" class="btn">See My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title">School Management Console</h3>
+                        <p class="project-desc">A simple Python application to manage student records and grades, demonstrating foundational programming logic and problem-solving.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Basic I/O</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- Add your GitHub link for this project when you have it -->
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Code (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-globe"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <p class="project-desc">The very website you are viewing! Built from scratch with HTML and CSS to showcase my journey and learn web development fundamentals.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- You can link to this portfolio itself later -->
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-lightbulb"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Future Innovation Project</h3>
+                        <p class="project-desc">I am constantly learning and experimenting with new ideas. This space is reserved for my next big project. Stay tuned for updates!</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Learning</span>
+                            <span class="tech-tag">Planning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#contact"><i class="fas fa-envelope"></i> Suggest an Idea</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-flex">
+                <div class="about-img"><i class="fas fa-user-graduate"></i></div>
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Antony Kagwanja, a dedicated student currently attending Weithaga Boys High School in Kenya. My journey in technology is just beginning, and I am incredibly enthusiastic about software development and the endless possibilities it creates.</p>
+                    <p>I am a quick learner, a creative problem-solver, and I enjoy the process of turning ideas into reality through code. When I'm not studying or working on a new project, you can find me reading about new tech trends or collaborating with friends to solve challenges.</p>
+                    <p>I am looking for opportunities to learn from others, contribute to projects, and further develop my skills in programming.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>My Skills & Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Currently Learning</h3>
+                    <ul class="skill-list">
+                        <li>Web Development (HTML, CSS)</li>
+                        <li>Programming Fundamentals</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Personal Strengths</h3>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Adaptability</li>
+                        <li>Teamwork</li>
+                        <li>Eagerness to Learn</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Future Interests</h3>
+                    <ul class="skill-list">
+                        <li>Mobile App Development</li>
+                        <li>Database Management</li>
+                        <li>UI/UX Design</li>
+                        <li>Artificial Intelligence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect!</h2>
+            <p>I'm always open to discussing new opportunities, project ideas, or just a friendly chat about technology. Feel free to reach out to me via email.</p>
+            <div class="contact-links">
+                <a href="mailto:antonykagwanja1@gmail.com" aria-label="Email"><i class="fas fa-envelope contact-icon"></i></a>
+                <!-- Add your other social links here when you create them -->
+                <!-- <a href="https://github.com/Sir-blanko" target="_blank" aria-label="GitHub"><i class="fab fa-github contact-icon"></i></a> -->
+            </div>
+            <p style="margin-top: 2rem;"><small>P.S. I'm working on creating my GitHub and LinkedIn profiles. They will be added here soon!</small></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Antony Kagwanja © 2023</p>
+        </div>
+    </footer>
+</body>
+</html>
