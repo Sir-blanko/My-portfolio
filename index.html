@@ -7,7 +7,17 @@
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://antony-kagwanja.vercel.app">
 
+  
+  <meta name="description" content="Antony Kagwanja - Full-Stack Developer & UI/UX Designer specializing in modern web applications">
+  <meta name="keywords" content="web developer, full-stack, React, Node.js, JavaScript, portfolio">
+  <meta property="og:title" content="Antony Kagwanja - Full-Stack Developer">
+  <meta property="og:description" content="Crafting digital experiences that blend beautiful design with robust functionality">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <style>
     /* Base Styles & Variables */
@@ -241,6 +251,52 @@
          color: #03fb4e;
     }
 
+    /* IMPROVED STYLES */
+:root {
+    --primary-color: #2563eb;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+}
+
+/* Fix contrast and typography */
+.hero-content h1 {
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Improve buttons */
+.cta-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Better section spacing */
+section {
+    padding: 4rem 0;
+    margin: 2rem 0;
+}
+
   </style>
 </head>
 <body>
@@ -261,9 +317,8 @@
   <section id="hero">
     <div class="container">
       <div class="hero-content">
-        <span class="hero-tag">Student & Aspiring Developer</span>
-        <h1>Hello, I'm Antony Kagwanja.</h1>
-        <p class="hero-desc">A passionate student at Weithaga Boys High School, Kenya, exploring the world of technology and building my skills in programming and web development. I'm eager to learn, create, and contribute to exciting projects.</p>
+        <span class="hero-tag">Student & Aspiring Developer</span><h1>Antony Kagwanja<br><span style="color: #2563eb; font-size: 1.5rem;">Full-Stack Developer & UI/UX Designer</span></h1>
+        <p>Crafting digital experiences that blend beautiful design with robust functionality</p>
         <a href="#projects" class="btn">See My Work</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
@@ -330,12 +385,16 @@
       <div class="about-flex">
         <img src="antony.jpg" alt="Antony Kagwanja Githure" class="avatar"/>
         <div class="about-content">
-          <h2>About Me</h2>
-          <p>Hello! I'm Antony Kagwanja, a dedicated student currently attending Weithaga Boys High School in Kenya. My journey in technology is just beginning, and I am incredibly enthusiastic about software development and the endless possibilities it creates.</p>
-          <p>I am a quick learner, a creative problem-solver, and I enjoy the process of turning ideas into reality through code. When I'm not studying or working on a new project, you can find me reading about new tech trends or collaborating with friends to solve challenges.</p>
-          <p>I am looking for opportunities to learn from others, contribute to projects, and further develop my skills in programming.</p>
-          <a href="#contact" class="btn">Get In Touch</a>
-        </div>
+         <h2>About Me</h2>
+            <p>I'm a passionate full-stack developer with expertise in modern web technologies. I specialize in creating responsive, user-friendly applications that solve real-world problems. When I'm not coding, you can find me exploring new frameworks or contributing to open-source projects.</p>
+            
+            <div class="skills-highlight">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">UI/UX Design</span>
+            </div>
       </div>
     </div>
   </section>
@@ -418,6 +477,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
