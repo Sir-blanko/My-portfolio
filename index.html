@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antony Kagwanja | Full-Stack Developer & UI/UX Designer</title>
+  <title>Antony Kagwanja | STEM Tutor, Writer & Developer</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="canonical" href="https://antony-kagwanja.vercel.app">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Antony Kagwanja - Passionate Full-Stack Developer & UI/UX Designer specializing in modern web applications and digital experiences.">
-  <meta name="keywords" content="web developer, full-stack developer, React, Node.js, JavaScript, portfolio, UI/UX designer, Kenya developer">
+  <meta name="description" content="Antony Kagwanja - STEM tutor, academic writer and developer offering online lessons in Mathematics, Computer Studies, Physics and Geography, plus high‑quality digital content and web solutions.">
+  <meta name="keywords" content="online tutor, mathematics tutor, physics tutor, computer studies tutor, geography tutor, academic writer, content writer, web developer, Kenya tutor">
   <meta name="author" content="Antony Kagwanja">
   <meta property="og:title" content="Antony Kagwanja - Full-Stack Developer & UI/UX Designer">
   <meta property="og:description" content="Crafting digital experiences that blend beautiful design with robust functionality">
@@ -65,6 +65,20 @@
       color: var(--light);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(37,99,235,0.16), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(124,58,237,0.16), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(6,182,212,0.16), transparent 55%);
+      opacity: 0.9;
+      z-index: -1;
+      animation: backgroundGlow 22s ease-in-out infinite alternate;
     }
     
     .container {
@@ -264,6 +278,9 @@
       max-width: 700px;
       z-index: 2;
       position: relative;
+      animation: floatIn 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
     }
     
     .hero-badge {
@@ -329,13 +346,13 @@
     
     .hero-blur {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 500px;
-      height: 500px;
-      background: var(--primary);
-      filter: blur(200px);
-      opacity: 0.1;
+      top: -80px;
+      right: -40px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle at 30% 20%, rgba(37,99,235,0.9), transparent 60%);
+      filter: blur(120px);
+      opacity: 0.45;
       z-index: 1;
     }
     
@@ -450,27 +467,32 @@
     
     .about-img {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .avatar {
       width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: var(--border-radius-lg);
+      max-width: 360px;
+      height: 360px;
+      border-radius: 999px;
       box-shadow: var(--shadow-xl);
       position: relative;
       z-index: 2;
+      object-fit: cover;
+      background: radial-gradient(circle at 30% 0%, #1e293b, #020617);
     }
     
     .about-img:before {
       content: '';
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 100%;
-      height: 100%;
-      border: 3px solid var(--primary);
-      border-radius: var(--border-radius-lg);
+      top: 10px;
+      left: 10px;
+      width: 90%;
+      height: 90%;
+      border: 2px dashed rgba(148,163,184,0.7);
+      border-radius: 999px;
       z-index: 1;
     }
     
@@ -616,6 +638,105 @@
     .contact-link span {
       font-size: 0.875rem;
       font-weight: 500;
+    }
+
+    /* Services Section */
+    #services {
+      background: radial-gradient(circle at top left, rgba(37,99,235,0.14), transparent 55%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: rgba(15,23,42,0.9);
+      border-radius: var(--border-radius-lg);
+      padding: 26px 24px 24px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(96,165,250,0.35), transparent 40%, transparent 60%, rgba(52,211,153,0.4));
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 0.9;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(96,165,250,0.6);
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(96,165,250,0.6);
+      color: var(--accent);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-title {
+      font-size: 1.25rem;
+      margin-bottom: .35rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--gray);
+      margin-bottom: .9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card p {
+      font-size: 0.98rem;
+      margin-bottom: .9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.75rem;
+      color: var(--gray-light);
     }
     
     /* Footer */
@@ -798,6 +919,17 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    @keyframes backgroundGlow {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-20px,10px,0) scale(1.04); }
+      100% { transform: translate3d(10px,-20px,0) scale(1.02); }
+    }
+
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateY(26px) scale(0.99); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -815,6 +947,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -824,34 +957,34 @@
   <section id="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">Full-Stack Developer & UI/UX Designer</div>
-        <h1 class="hero-title">Hello, I'm <span>Antony Kagwanja</span></h1>
+        <div class="hero-badge">STEM Tutor • Academic Writer • Developer</div>
+        <h1 class="hero-title">Personalized <span>online learning</span> for curious minds.</h1>
         <p class="hero-description">
-          I craft digital experiences that blend beautiful design with robust functionality. 
-          Passionate about building modern web applications that solve real-world problems.
+          I help students and professionals master <strong>Mathematics, Computer Studies, Physics and Geography</strong>,
+          while also creating clear, exam-ready notes, researched articles and modern web experiences.
         </p>
         
         <div class="hero-btns">
-          <a href="#projects" class="btn btn-primary btn-lg">
-            <i class="fas fa-code"></i> View My Work
+          <a href="#services" class="btn btn-primary btn-lg">
+            <i class="fas fa-graduation-cap"></i> Book a Session
           </a>
           <a href="#contact" class="btn btn-secondary btn-lg">
-            <i class="fas fa-paper-plane"></i> Get In Touch
+            <i class="fas fa-paper-plane"></i> Hire Me Online
           </a>
         </div>
         
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Projects Completed</div>
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Hours of Tutoring</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Client Satisfaction</div>
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">Student Ratings</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">2+</div>
-            <div class="stat-label">Years Learning</div>
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Resources Created</div>
           </div>
         </div>
       </div>
@@ -864,23 +997,24 @@
   <section id="projects">
     <div class="container">
       <div class="section-title">
-        <h2>Featured Projects</h2>
-        <p>A selection of my recent work and personal projects</p>
+        <h2>Learning Projects</h2>
+        <p>Tools and experiments that make studying simpler and more enjoyable</p>
       </div>
       
       <div class="project-grid">
         <!-- Project 1 -->
+        <div class="project-card fade-in">
           <div class="project-img">
             <img src="School-management-system.png" 
               alt="School Management System" 
               class="project-real-img">
           </div>
-  
+
           <div class="project-content">
             <h3 class="project-title">School Management System</h3>
             <p class="project-desc">
-              A comprehensive Python application to manage student records, grades, and attendance. 
-              Built with a clean console interface and efficient data management.
+              A Python application that helps teachers track students, marks and attendance in one place –
+              built to reduce paperwork and make grading faster.
             </p>
             <div class="project-tech">
               <span class="tech-tag">Python</span>
@@ -891,8 +1025,8 @@
               <a href="https://github.com/Sir-blanko" target="_blank" class="project-link">
                 <i class="fab fa-github"></i> Source Code
               </a>
-              <a href="#" class="project-link">
-                <i class="fas fa-external-link-alt"></i> Live Demo
+              <a href="https://replit.com/~" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Try Similar Demo Online
               </a>
             </div>
           </div>
@@ -901,26 +1035,26 @@
         <!-- Project 2 -->
         <div class="project-card fade-in">
           <div class="project-img">
-            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-square-root-alt"></i>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Modern Portfolio Website</h3>
+            <h3 class="project-title">Exam Revision Question Bank</h3>
             <p class="project-desc">
-              A responsive portfolio website built with pure HTML, CSS, and JavaScript. 
-              Features modern design, smooth animations, and optimized performance.
+              A structured bank of Mathematics, Physics and Computer Studies questions with step‑by‑step
+              solutions, designed to mirror real exam style and help learners revise smarter.
             </p>
             <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Responsive Design</span>
+              <span class="tech-tag">Mathematics</span>
+              <span class="tech-tag">Physics</span>
+              <span class="tech-tag">Google Docs</span>
+              <span class="tech-tag">Notion</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Sir-blanko" target="_blank" class="project-link">
-                <i class="fab fa-github"></i> Source Code
+                <i class="fab fa-github"></i> Sample Notes
               </a>
-              <a href="#" class="project-link">
-                <i class="fas fa-external-link-alt"></i> Live Site
+              <a href="https://www.notion.so" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Online Preview
               </a>
             </div>
           </div>
@@ -929,25 +1063,25 @@
         <!-- Project 3 -->
         <div class="project-card fade-in">
           <div class="project-img">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
           </div>
           <div class="project-content">
-            <h3 class="project-title">E-Commerce UI Design</h3>
+            <h3 class="project-title">Live Tutoring Dashboard</h3>
             <p class="project-desc">
-              A modern e-commerce user interface design with focus on user experience. 
-              Includes product listings, shopping cart, and checkout flow.
+              A concept UI for managing online lessons, topics and homework across different subjects,
+              making it easy for students to see what is next and for parents to track progress.
             </p>
             <div class="project-tech">
-              <span class="tech-tag">Figma</span>
               <span class="tech-tag">UI/UX Design</span>
-              <span class="tech-tag">Prototyping</span>
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Responsive Layout</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Sir-blanko" target="_blank" class="project-link">
-                <i class="fab fa-github"></i> Design File
+                <i class="fab fa-github"></i> Design Snapshot
               </a>
-              <a href="#" class="project-link">
-                <i class="fas fa-external-link-alt"></i> Prototype
+              <a href="https://www.figma.com" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Figma Prototype
               </a>
             </div>
           </div>
@@ -961,36 +1095,34 @@
     <div class="container">
       <div class="about-content">
         <div class="about-img fade-in">
-          <img src="antony.jpg" alt="Antony Kagwanja" class="avatar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80'">
+          <img src="" alt="Your portrait (add your image here)" class="avatar">
         </div>
         
         <div class="about-text fade-in">
           <h2>About Me</h2>
           <p>
-            I'm a passionate full-stack developer based in Kenya with a strong interest in creating 
-            digital solutions that make a difference. My journey in tech started with curiosity 
-            about how websites work, and it has evolved into a dedicated pursuit of mastering 
-            modern web technologies.
+            I'm a STEM tutor, academic writer and developer based in Kenya. I love turning hard topics
+            into simple explanations and visual stories that actually stick for exams and real life.
           </p>
           <p>
-            I believe in writing clean, efficient code and creating intuitive user experiences. 
-            Currently, I'm expanding my skills in React, Node.js, and cloud technologies while 
-            working on personal projects that challenge my abilities.
+            My core subjects are <strong>Mathematics, Computer Studies, Physics and Geography</strong>,
+            and I also help with structured notes, research summaries, lab write‑ups and online coursework
+            support. Every lesson is tailored to the student's syllabus, level and goals.
           </p>
           <p>
-            When I'm not coding, you can find me exploring new frameworks, contributing to 
-            open-source projects, or learning about emerging technologies in the web development space.
+            Beyond teaching, I design digital tools and interfaces that support learning — from question
+            banks to dashboards. This mix of teaching, writing and building lets me give students both
+            clear theory and practical skills.
           </p>
           
           <div class="about-skills">
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">HTML/CSS</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Mathematics Tutoring</span>
+            <span class="skill-tag">Physics & Geography</span>
+            <span class="skill-tag">Computer Studies</span>
+            <span class="skill-tag">Academic & Blog Writing</span>
+            <span class="skill-tag">Online Coaching</span>
+            <span class="skill-tag">Revision Notes & Guides</span>
+            <span class="skill-tag">Web & UI Design</span>
           </div>
         </div>
       </div>
@@ -1007,40 +1139,103 @@
       
       <div class="skills-grid">
         <div class="skill-category fade-in">
-          <h3><i class="fas fa-code"></i> Frontend Development</h3>
+          <h3><i class="fas fa-chalkboard-teacher"></i> Tutoring & Teaching</h3>
           <ul class="skill-list">
-            <li>HTML5 & Semantic Markup</li>
-            <li>CSS3 & Modern Layouts (Flexbox, Grid)</li>
-            <li>JavaScript (ES6+)</li>
-            <li>React.js & Ecosystem</li>
-            <li>Responsive Web Design</li>
-            <li>Cross-Browser Compatibility</li>
+            <li>High‑school & college Mathematics (algebra, calculus, statistics)</li>
+            <li>Physics (mechanics, electricity, waves, modern physics)</li>
+            <li>Computer Studies (ICT, programming basics, algorithms)</li>
+            <li>Geography (physical & human, mapping and data)</li>
+            <li>Exam preparation and study planning</li>
+            <li>One‑to‑one and small group sessions</li>
           </ul>
         </div>
         
         <div class="skill-category fade-in">
-          <h3><i class="fas fa-server"></i> Backend Development</h3>
+          <h3><i class="fas fa-pen-fancy"></i> Writing & Online Work</h3>
           <ul class="skill-list">
-            <li>Node.js & Express.js</li>
-            <li>Python & Flask</li>
-            <li>RESTful API Design</li>
-            <li>Database Management (SQL & NoSQL)</li>
-            <li>Authentication & Authorization</li>
-            <li>Server Deployment</li>
+            <li>Academic reports, lab write‑ups and project summaries</li>
+            <li>Blog & technical article writing</li>
+            <li>Slide decks and lesson notes for teachers</li>
+            <li>Online research and content organization</li>
+            <li>Basic data entry and virtual assistance</li>
+            <li>Clear communication and deadline management</li>
           </ul>
         </div>
         
         <div class="skill-category fade-in">
-          <h3><i class="fas fa-paint-brush"></i> Design & Tools</h3>
+          <h3><i class="fas fa-laptop-code"></i> Tech & Tools</h3>
           <ul class="skill-list">
-            <li>UI/UX Design Principles</li>
-            <li>Figma & Adobe XD</li>
-            <li>Git & Version Control</li>
-            <li>Command Line & Linux</li>
-            <li>VS Code & Dev Tools</li>
-            <li>Agile Methodology</li>
+            <li>Python, HTML/CSS and JavaScript basics</li>
+            <li>Spreadsheets for marks and data analysis</li>
+            <li>Learning platforms (Google Classroom, Notion, Google Docs)</li>
+            <li>UI/UX design in Figma</li>
+            <li>GitHub and version control for projects</li>
+            <li>Modern browser dev tools</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>How I Can Help You</h2>
+        <p>Flexible online services designed around your goals</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-square-root-alt"></i>
+          </div>
+          <h3 class="service-title">STEM Tutoring</h3>
+          <div class="service-meta">Mathematics • Physics • Computer Studies • Geography</div>
+          <p>
+            Live, interactive lessons that follow your syllabus, break down hard questions, and
+            build exam confidence with plenty of practice and past‑paper style problems.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">KCSE & college</span>
+            <span class="service-tag">Exam revision</span>
+            <span class="service-tag">Homework support</span>
+          </div>
+        </article>
+
+        <article class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3 class="service-title">Writing & Notes</h3>
+          <div class="service-meta">Academic writing • Structured notes</div>
+          <p>
+            Clean, well‑organized notes, lab reports, project write‑ups and explanations that
+            are easy to revise from and suitable for sharing with students or teammates.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Reports</span>
+            <span class="service-tag">Revision notes</span>
+            <span class="service-tag">Slides & summaries</span>
+          </div>
+        </article>
+
+        <article class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="service-title">Online & Tech Help</h3>
+          <div class="service-meta">Remote support • Small web projects</div>
+          <p>
+            Help setting up online tools, organizing study materials, building simple websites,
+            and supporting other remote jobs that can be handled from a laptop.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Web presence</span>
+            <span class="service-tag">Virtual assistance</span>
+            <span class="service-tag">Simple apps</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1050,7 +1245,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Get In Touch</h2>
-        <p>Have a project in mind or want to collaborate? Let's talk!</p>
+        <p>Book a lesson, request notes, or hire me for online work.</p>
       </div>
       
       <div class="contact-description">
@@ -1073,13 +1268,18 @@
         </div>
         
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" class="form-control" placeholder="Project or inquiry subject" required>
+          <label for="service">What do you need help with?</label>
+          <select id="service" name="service" class="form-control" required>
+            <option value="">Select an option</option>
+            <option value="tutoring">Tutoring (Math, Computer, Physics, Geography)</option>
+            <option value="writing">Writing / Notes / Reports</option>
+            <option value="online-work">Other online work</option>
+          </select>
         </div>
         
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project or inquiry..." required></textarea>
+          <textarea id="message" name="message" class="form-control" placeholder="Tell me about your level, timeline, and what you want to achieve..." required></textarea>
         </div>
         
         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
@@ -1108,7 +1308,7 @@
           <span>Facebook</span>
         </a>
         
-        <a href="https://www.instagram.com/blanko_254_skull/" target="_blank" class="contact-link" title="Instagram Profile">
+        <a href="https://www.instagram.com/prince_blanko._.21/" target="_blank" class="contact-link" title="Instagram Profile">
           <i class="fab fa-instagram contact-icon"></i>
           <span>Instagram</span>
         </a>
@@ -1140,7 +1340,7 @@
         <a href="https://www.facebook.com/profile.php?id=61568009044717" target="_blank" style="margin: 0 10px; color: var(--gray-light); font-size: 1.5rem;">
           <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://www.instagram.com/blanko_254_skull/" target="_blank" style="margin: 0 10px; color: var(--gray-light); font-size: 1.5rem;">
+        <a href="https://www.instagram.com/prince_blanko._.21/" target="_blank" style="margin: 0 10px; color: var(--gray-light); font-size: 1.5rem;">
           <i class="fab fa-instagram"></i>
         </a>
         <a href="mailto:antonykagwanja1@gmail.com" style="margin: 0 10px; color: var(--gray-light); font-size: 1.5rem;">
