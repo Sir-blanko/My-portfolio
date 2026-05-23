@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antony Kagwanja | STEM Tutor, Writer & Developer</title>
   <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-1ycoCaAtRAPzM0KvsCJrDywV0IjfMA1nJ6ZBztN1B3QAqjVP9nnNP3F3G7dwGcERMgA9NGCsLNvVMGbKkslcA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
   <link rel="canonical" href="https://antony-kagwanja.vercel.app">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Antony Kagwanja - STEM tutor, academic writer and developer offering online lessons in Mathematics, Computer Studies, Physics and Geography, plus high-quality digital content creation services.">
+  <meta name="description" content="Antony Kagwanja - STEM tutor, academic writer and developer offering online lessons in Mathematics, Computer Studies, Physics and Geography, plus high-quality digital content creation.">
   <meta name="keywords" content="online tutor, mathematics tutor, physics tutor, computer studies tutor, geography tutor, academic writer, content writer, web developer, Kenya tutor">
   <meta name="author" content="Antony Kagwanja">
+  <meta name="theme-color" content="#38bdf8">
   <meta property="og:title" content="Antony Kagwanja - Full-Stack Developer & UI/UX Designer">
   <meta property="og:description" content="Crafting digital experiences that blend beautiful design with robust functionality">
   <meta property="og:type" content="website">
@@ -80,6 +81,17 @@
         transform: translateY(0);
       }
     }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
     
     /* Base Styles */
     * {
@@ -112,6 +124,7 @@
       opacity: 0.9;
       z-index: -1;
       animation: backgroundGlow 22s ease-in-out infinite alternate;
+      pointer-events: none;
     }
     
     .container {
@@ -125,7 +138,7 @@
       padding: 100px 0;
     }
     
-    h1, h2, h3, h4 {
+    h1, h2, h3, h4, h5, h6 {
       font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-weight: 700;
       line-height: 1.2;
@@ -144,7 +157,7 @@
       display: inline-block;
     }
     
-    h2:after {
+    h2::after {
       content: '';
       position: absolute;
       bottom: -10px;
@@ -175,6 +188,12 @@
     ul {
       list-style: none;
     }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
     
     .btn {
       display: inline-flex;
@@ -188,6 +207,7 @@
       cursor: pointer;
       transition: var(--transition);
       gap: 8px;
+      text-align: center;
     }
     
     .btn-primary {
@@ -222,7 +242,7 @@
       margin-bottom: 4rem;
     }
     
-    .section-title h2:after {
+    .section-title h2::after {
       left: 50%;
       transform: translateX(-50%);
     }
@@ -249,6 +269,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 24px;
     }
     
     .logo {
@@ -258,6 +279,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      cursor: pointer;
     }
     
     .nav-links {
@@ -270,7 +292,7 @@
       position: relative;
     }
     
-    .nav-links a:after {
+    .nav-links a::after {
       content: '';
       position: absolute;
       bottom: -5px;
@@ -281,8 +303,8 @@
       transition: width 0.3s ease;
     }
     
-    .nav-links a:hover:after,
-    .nav-links a.active:after {
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
     }
     
@@ -297,6 +319,13 @@
       color: var(--light);
       font-size: 1.5rem;
       cursor: pointer;
+      padding: 8px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
     
     /* Hero Section */
@@ -314,8 +343,6 @@
       z-index: 2;
       position: relative;
       animation: floatIn 1s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
     }
     
     .hero-badge {
@@ -347,6 +374,7 @@
       font-size: 1.25rem;
       margin-bottom: 2.5rem;
       max-width: 600px;
+      color: var(--gray-light);
     }
     
     .hero-btns {
@@ -391,7 +419,7 @@
       z-index: 1;
     }
     
-    /* Pinterest Slideshow Container */
+    /* Motivation Slider */
     #motivation-slider {
       max-width: 300px;
       margin: 40px auto;
@@ -411,6 +439,9 @@
     .pin-wrapper iframe {
       flex: 0 0 100%;
       border: none;
+      width: 100%;
+      height: auto;
+      min-height: 400px;
     }
     
     /* Projects Section */
@@ -449,7 +480,7 @@
       overflow: hidden;
     }
     
-    .project-img:before {
+    .project-img::before {
       content: '';
       position: absolute;
       top: 0;
@@ -459,9 +490,10 @@
       background: var(--gradient-primary);
       opacity: 0;
       transition: var(--transition);
+      z-index: 1;
     }
     
-    .project-card:hover .project-img:before {
+    .project-card:hover .project-img::before {
       opacity: 0.1;
     }
     
@@ -477,6 +509,7 @@
     .project-desc {
       font-size: 1rem;
       margin-bottom: 20px;
+      color: var(--gray-light);
     }
     
     .project-tech {
@@ -520,6 +553,8 @@
       object-fit: cover;
       display: block;
       transition: 0.3s ease;
+      position: relative;
+      z-index: 0;
     }
 
     .project-card:hover .project-real-img {
@@ -553,7 +588,7 @@
       background: radial-gradient(circle at 30% 0%, #1e293b, #020617);
     }
     
-    .about-img:before {
+    .about-img::before {
       content: '';
       position: absolute;
       top: 10px;
@@ -621,10 +656,11 @@
       color: var(--gray-light);
     }
     
-    .skill-list li:before {
+    .skill-list li::before {
       content: '▸';
       color: var(--primary);
       font-weight: bold;
+      flex-shrink: 0;
     }
     
     /* Contact Section */
@@ -663,12 +699,18 @@
       border-radius: var(--border-radius);
       color: var(--light);
       font-size: 1rem;
+      font-family: inherit;
       transition: var(--transition);
     }
     
     .form-control:focus {
       outline: none;
       border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    .form-control::placeholder {
+      color: var(--gray);
     }
     
     textarea.form-control {
@@ -739,6 +781,7 @@
       color: var(--success);
       font-weight: 600;
       font-size: 0.95rem;
+      white-space: nowrap;
     }
 
     .rating-pill i {
@@ -790,7 +833,7 @@
       box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
-      transition: transform .35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow .35s ease, border-color .35s ease;
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
     }
 
     .service-card::before {
@@ -799,8 +842,9 @@
       inset: -40%;
       background: conic-gradient(from 180deg, rgba(96,165,250,0.35), transparent 40%, transparent 60%, rgba(52,211,153,0.4));
       opacity: 0;
-      transition: opacity .35s ease;
+      transition: opacity 0.35s ease;
       pointer-events: none;
+      z-index: 0;
     }
 
     .service-card:hover::before {
@@ -825,14 +869,15 @@
       color: var(--accent);
       margin-bottom: 14px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      flex-shrink: 0;
     }
 
     .service-title {
       font-size: 1.25rem;
-      margin-bottom: .35rem;
+      margin-bottom: 0.35rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .service-meta {
@@ -840,16 +885,16 @@
       text-transform: uppercase;
       letter-spacing: 0.09em;
       color: var(--gray);
-      margin-bottom: .9rem;
+      margin-bottom: 0.9rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .service-card p {
       font-size: 0.98rem;
-      margin-bottom: .9rem;
+      margin-bottom: 0.9rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .service-tags {
@@ -857,7 +902,7 @@
       flex-wrap: wrap;
       gap: 6px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .service-tag {
@@ -891,6 +936,7 @@
       justify-content: center;
       gap: 40px;
       margin-bottom: 40px;
+      flex-wrap: wrap;
     }
     
     .footer-links a {
@@ -932,6 +978,10 @@
         max-width: 400px;
         margin: 0 auto;
       }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
     }
     
     @media (max-width: 768px) {
@@ -962,13 +1012,30 @@
         visibility: visible;
       }
       
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+      
       .hero-title {
         font-size: 2.75rem;
+      }
+
+      .hero-badge {
+        font-size: 0.75rem;
       }
       
       .hero-btns {
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
+      }
+
+      .hero-btns .btn {
+        width: 100%;
       }
       
       .hero-stats {
@@ -977,6 +1044,10 @@
       }
       
       .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
         grid-template-columns: 1fr;
       }
       
@@ -997,90 +1068,415 @@
         width: 100px;
         padding: 15px;
       }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2.5rem;
+
+      .testimonials-strip {
+        flex-direction: column;
+        text-align: center;
       }
-      
-      h2 {
+
+      .about-content {
+        gap: 30px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      h1 {
         font-size: 2rem;
       }
-      
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
       .hero-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
       }
-      
-      section {
-        padding: 70px 0;
+
+      .hero-stats {
+        gap: 15px;
       }
-      
-      .btn {
-        padding: 12px 24px;
+
+      .stat-number {
+        font-size: 1.75rem;
       }
-      
-      .contact-link {
-        width: 90px;
-        padding: 12px;
+
+      .nav-container {
+        padding: 0 16px;
       }
-    }
-    
-    /* Animation Classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease-out forwards;
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .project-grid {
+        gap: 20px;
+      }
+
+      .services-grid {
+        gap: 16px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation will go here -->
-  <nav>
+  <!-- Navigation -->
+  <nav id="navbar">
     <div class="container">
       <div class="nav-container">
         <div class="logo">AK</div>
-        <div class="nav-links">
-          <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#hero" class="active">Home</a>
           <a href="#projects">Projects</a>
+          <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#services">Services</a>
           <a href="#contact">Contact</a>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Add remaining HTML sections here -->
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-blur"></div>
+      <div class="hero-content">
+        <span class="hero-badge">Welcome to my portfolio</span>
+        <h1 class="hero-title">Hi, I'm <span>Antony Kagwanja</span></h1>
+        <p class="hero-description">STEM Tutor, Academic Writer & Full-Stack Developer crafting digital experiences that blend beautiful design with robust functionality.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+          <a href="#contact" class="btn btn-secondary btn-lg">Get In Touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Students Tutored</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="project-grid">
+        <!-- Project cards go here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-img">
+          <img src="avatar.jpg" alt="Antony Kagwanja" class="avatar">
+        </div>
+        <div>
+          <p>I'm a passionate STEM tutor, academic writer, and developer from Kenya. With over 5 years of experience, I've helped numerous students excel in Mathematics, Physics, Computer Studies, and Geography.</p>
+          <p>My approach combines interactive teaching with real-world applications, making complex concepts easy to understand. As a developer, I create elegant solutions to technical problems.</p>
+          <div class="about-skills">
+            <span class="skill-tag">Teaching</span>
+            <span class="skill-tag">Writing</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">STEM Education</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills & Expertise</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-graduation-cap"></i> Teaching</h3>
+          <ul class="skill-list">
+            <li>Mathematics Instruction</li>
+            <li>Physics & Chemistry</li>
+            <li>Computer Studies</li>
+            <li>Geography Education</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Development</h3>
+          <ul class="skill-list">
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>React & Vue.js</li>
+            <li>Web Design</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-pen-fancy"></i> Writing</h3>
+          <ul class="skill-list">
+            <li>Academic Writing</li>
+            <li>Content Creation</li>
+            <li>Technical Documentation</li>
+            <li>SEO Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Client Testimonials</h2>
+      </div>
+      <div class="testimonials-strip">
+        <div class="rating-pill">
+          <i class="fas fa-star"></i>
+          <span>5.0 Rating</span>
+        </div>
+        <p class="testimonials-quote">
+          <strong>Highly Recommended!</strong> Antony's teaching method is exceptional. He made difficult concepts simple and engaging.
+        </p>
+        <div class="testimonials-mini">
+          <span>50+ Students</span>
+          <span>Verified Feedback</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services Offered</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3 class="service-title">Online Tutoring</h3>
+          <p class="service-meta">Education</p>
+          <p>Personalized online lessons in STEM subjects with interactive learning materials and regular progress tracking.</p>
+          <div class="service-tags">
+            <span class="service-tag">Mathematics</span>
+            <span class="service-tag">Physics</span>
+            <span class="service-tag">Online</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-pen"></i>
+          </div>
+          <h3 class="service-title">Academic Writing</h3>
+          <p class="service-meta">Content</p>
+          <p>High-quality academic content, research papers, and educational materials tailored to your needs.</p>
+          <div class="service-tags">
+            <span class="service-tag">Writing</span>
+            <span class="service-tag">Research</span>
+            <span class="service-tag">SEO</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-meta">Technology</p>
+          <p>Custom website design and development with modern technologies and best practices.</p>
+          <div class="service-tags">
+            <span class="service-tag">Web Design</span>
+            <span class="service-tag">Development</span>
+            <span class="service-tag">React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+      </div>
+      <p class="contact-description">
+        Have a question or project in mind? I'd love to hear from you. Whether you need tutoring, writing services, or web development, feel free to reach out.
+      </p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+      </form>
+      <div class="contact-links">
+        <a href="mailto:antony@example.com" class="contact-link">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <span>Email</span>
+        </a>
+        <a href="https://linkedin.com" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">
+            <i class="fas fa-linkedin"></i>
+          </div>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">
+            <i class="fas fa-github"></i>
+          </div>
+          <span>GitHub</span>
+        </a>
+        <a href="https://twitter.com" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">
+            <i class="fas fa-twitter"></i>
+          </div>
+          <span>Twitter</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">AK</div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2024 Antony Kagwanja. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.querySelector('.nav-links');
-    
+    const navLinks = document.getElementById('navLinks');
+
     mobileMenuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-    
-    // Close menu when link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
       });
     });
-    
-    // Scroll effect for navbar
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
       if (window.scrollY > 100) {
-        nav.classList.add('scrolled');
+        navbar.classList.add('scrolled');
       } else {
-        nav.classList.remove('scrolled');
+        navbar.classList.remove('scrolled');
       }
+    });
+
+    // Active nav link
+    const sections = document.querySelectorAll('section');
+    const navItems = navLinks.querySelectorAll('a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').slice(1) === current) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add form submission logic here
+        console.log('Form submitted');
+        // Reset form
+        contactForm.reset();
+        alert('Thank you for your message! I will get back to you soon.');
+      });
+    }
+
+    // Smooth scroll for navigation links
+    navLinks.querySelectorAll('a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
     });
   </script>
 </body>
