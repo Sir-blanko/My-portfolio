@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sir_Blanko</title>
+<meta name="description" content="Githure Antony Kagwanja offers web development, tutoring in physics and computer studies, database system development, photo editing, and office productivity support.">
+<title>Githure Antony Kagwanja | Web Developer & Tutor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -27,37 +29,38 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
 
-header.top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0}
 header.top .mark{font:700 1.1rem var(--display);text-decoration:none}
-nav a{margin-left:1.5rem;text-decoration:none;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--ink)}
 
 .hero{padding:clamp(3rem,10vw,8rem) 0 clamp(3rem,8vw,6rem)}
-.hero h1{font:800 clamp(3.2rem,12vw,9rem)/.92 var(--display);letter-spacing:-.04em;margin:0 0 2rem}
-.hero p{max-width:34rem;font-size:1.25rem;color:var(--muted);margin:0 0 2rem}
-.btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:.85rem 1.4rem;border-radius:4px;font-weight:500;text-decoration:none}
-.btn:hover{filter:brightness(1.1)}
+.hero .eyebrow{margin:0 0 1rem;color:var(--accent);font-size:.95rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{max-width:950px;font:800 clamp(3.2rem,12vw,8.5rem)/.94 var(--display);letter-spacing:-.05em;margin:0 0 2rem;text-wrap:balance}
+.hero p.intro{max-width:40rem;font-size:clamp(1.15rem,2.5vw,1.3rem);color:var(--muted);margin:0 0 2rem}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:.85rem 1.4rem;border-radius:4px;font-weight:500;text-decoration:none;transition:filter .15s,transform .15s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
 
-section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
-h2{font:700 1.75rem/1.1 var(--display);letter-spacing:-.02em;margin:0 0 2rem}
+section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--line);scroll-margin-top:1rem}
+h2{font:700 clamp(1.75rem,4vw,2.25rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 2rem}
 
-.work{list-style:none;margin:0;padding:0}
-.work li{border-bottom:1px solid var(--line)}
-.work a{display:grid;grid-template-columns:1fr auto;gap:.25rem 2rem;padding:1.4rem 0;text-decoration:none}
-.work h3{font:700 clamp(1.4rem,3.5vw,2.2rem)/1.1 var(--display);margin:0;letter-spacing:-.02em;transition:color .15s}
-.work a:hover h3{color:var(--accent)}
-.work .meta{color:var(--muted);text-align:right}
-.work .desc{grid-column:1/-1;color:var(--muted);max-width:40rem;margin:0}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0;padding:0;list-style:none}
+.services li{padding:clamp(1.25rem,3vw,2rem);border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.services h3{margin:0 0 .6rem;font:700 clamp(1.3rem,3vw,1.8rem)/1.15 var(--display);letter-spacing:-.02em}
+.services p{margin:0;color:var(--muted)}
 
 .about{display:grid;gap:2rem;grid-template-columns:1fr}
 @media(min-width:760px){.about{grid-template-columns:1fr 1fr}}
-.about p{margin:0 0 1rem;max-width:34rem}
-.skills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
-.skills li{background:var(--surface);border:1px solid var(--line);padding:.35rem .8rem;border-radius:999px}
+.about p{margin:0 0 1rem;max-width:38rem}
+.skills{list-style:none;margin:0;padding:0;display:flex;align-content:start;flex-wrap:wrap;gap:.5rem}
+.skills li{background:var(--surface);border:1px solid var(--line);padding:.35rem .8rem;border-radius:999px;color:var(--muted)}
 
 .contact h2{font-size:clamp(2rem,6vw,4rem)}
-.contact a.mail{font:700 clamp(1.3rem,4vw,2.4rem) var(--display);color:var(--accent);word-break:break-word}
+.contact p{max-width:35rem;color:var(--muted)}
+.contact a.mail{display:inline-block;margin-top:.5rem;font:700 clamp(1.3rem,4vw,2.4rem)/1.25 var(--display);color:var(--accent);overflow-wrap:anywhere}
 footer{padding:2rem 0;color:var(--muted);font-size:.95rem}
+@media(max-width:600px){header.top{align-items:flex-start;flex-direction:column}.services{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -65,46 +68,48 @@ footer{padding:2rem 0;color:var(--muted);font-size:.95rem}
 <div class="wrap">
   <header class="top">
     <a class="mark" href="#top">Githure Antony Kagwanja</a>
-    <nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   </header>
 
   <main id="top">
     <div class="hero">
-      <h1>Antony Kagwanja Githure</h1>
-      <p>One line on what you do and who you do it for. Replace this with your pitch.</p>
-      <a class="btn" href="#work">See my work</a>
+      <p class="eyebrow">Web developer · Tutor · Technology support</p>
+      <h1>Githure Antony Kagwanja</h1>
+      <p class="intro">I build useful digital solutions and help learners grow their confidence in physics and computer studies. I also work with databases, photo editing, and Microsoft Office.</p>
+      <a class="btn" href="#services">Explore what I do</a>
     </div>
 
-    <section id="work">
-      <h2>Selected work</h2>
-      <ul class="work">
-        <li><a href="#"><h3>Project one</h3><span class="meta">Role · 2026</span><p class="desc">Short description of the problem and what you did.</p></a></li>
-        <li><a href="#"><h3>Project two</h3><span class="meta">Role · 2025</span><p class="desc">Short description of the problem and what you did.</p></a></li>
-        <li><a href="#"><h3>Project three</h3><span class="meta">Role · 2025</span><p class="desc">Short description of the problem and what you did.</p></a></li>
-        <li><a href="#"><h3>Project four</h3><span class="meta">Role · 2024</span><p class="desc">Short description of the problem and what you did.</p></a></li>
+    <section id="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">What I do</h2>
+      <ul class="services">
+        <li><h3>Web development</h3><p>I build websites and digital experiences that are practical, user-friendly, and easy to navigate.</p></li>
+        <li><h3>Physics & computer studies tutoring</h3><p>I tutor physics and computer studies, helping learners understand difficult topics and build confidence.</p></li>
+        <li><h3>Database systems</h3><p>I develop database solutions using Microsoft Access to organize, manage, and simplify information.</p></li>
+        <li><h3>Photo editing & Microsoft Office</h3><p>I provide photo editing services and work with Word, Access, Publisher, PowerPoint, and Excel.</p></li>
       </ul>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
       <div class="about">
         <div>
-          <p>A short intro: who you are, where you're based, and what you care about in your work.</p>
-          <p>A second paragraph on your background or how you like to work.</p>
+          <p>I’m Githure Antony Kagwanja, a web developer and tutor with a strong interest in technology, learning, and practical problem-solving.</p>
+          <p>My work spans web and database development, tutoring in physics and computer studies, photo editing, and Microsoft Office support for everyday and professional tasks.</p>
         </div>
-        <ul class="skills" aria-label="Skills">
-          <li>Web Design</li><li>Web Dev</li><li>Tutoring</li><!--<li>Skill four</li><li>Skill five</li><li>Skill six</li>-->
+        <ul class="skills" aria-label="Skills and tools">
+          <li>Web Development</li><li>Physics Tutoring</li><li>Computer Studies Tutoring</li><li>Microsoft Access</li><li>Photo Editing</li><li>Word</li><li>Publisher</li><li>PowerPoint</li><li>Excel</li>
         </ul>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Let’s work together</h2>
-      <a class="mail" href="mailto:you@example.com">antonykagwanja1@gmail.com</a>
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Let’s work together</h2>
+      <p>Have a web, database, tutoring, or office productivity project in mind? Get in touch.</p>
+      <a class="mail" href="mailto:antonykagwanja1@gmail.com">antonykagwanja1@gmail.com</a>
     </section>
   </main>
 
-  <footer>© 2026 Sir_Blanko</footer>
+  <footer>© 2026 Githure Antony Kagwanja</footer>
 </div>
 </body>
 </html>
